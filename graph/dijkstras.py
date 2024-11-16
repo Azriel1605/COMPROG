@@ -1,14 +1,20 @@
 def dijkstras(graph, start, end):
     visited = []
     
-    tabel = {
-        'A': {'shortest': 0, 'previous':'A'},
-        'B': {'shortest': 999, 'previous':None},
-        'C': {'shortest': 999, 'previous':None},
-        'D': {'shortest': 999, 'previous':None},
-        'E': {'shortest': 999, 'previous':None},
-        'F': {'shortest': 999, 'previous':None}
-    }
+    # tabel = {
+    #     'A': {'shortest': 0, 'previous':'A'},
+    #     'B': {'shortest': 999, 'previous':None},
+    #     'C': {'shortest': 999, 'previous':None},
+    #     'D': {'shortest': 999, 'previous':None},
+    #     'E': {'shortest': 999, 'previous':None},
+    #     'F': {'shortest': 999, 'previous':None}
+    # }
+    tabel = {}
+    for index, key in enumerate(graph.keys()):
+        if index == 0:
+            tabel[key] = {'shortest': 0, 'previous':key}
+        else:
+            tabel[key] = {'shortest': 999, 'previous':None}
     
     for key, value in graph.items():
         for target, distance in value.items():
