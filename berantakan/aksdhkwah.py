@@ -1,0 +1,4 @@
+tabel = {}
+
+tabel
+print(tabel)
